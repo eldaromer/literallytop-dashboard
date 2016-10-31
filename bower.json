@@ -1,0 +1,21 @@
+{
+  "name": "literallytop-dashboard",
+  "version": "1.0.0",
+  "author": "Omer Eldar",
+  "description": "User dashboard that allows users to view products from users they follow",
+  "main": "index.js",
+  "authors": [
+    "Omer Eldar"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
