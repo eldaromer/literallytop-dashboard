@@ -9,12 +9,19 @@ var appRequire = function (name, requireName) {
     return dep;
 };
 
+appRequire('morgan');
 appRequire('mongoose');
 appRequire('extend');
+appRequire('jwt', 'jsonwebtoken');
+appRequire('bcrypt');
+appRequire('async');
 
 var bodyParser = appRequire('body-parser');
 var config = appRequire('config', './config.local');
+var morgan;
+morgan = require('morgan');
 
+app.use(morgan('dev'));
 app.use(bodyParser.json({
     limit: '10mb'
 }));

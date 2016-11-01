@@ -8,9 +8,13 @@
   },
   "author": "Omer Eldar",
   "dependencies": {
+    "async": "^2.1.2",
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "extend": "^3.0.0",
-    "mongoose": "^4.6.5"
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.5",
+    "morgan": "^1.7.0"
   }
 }
