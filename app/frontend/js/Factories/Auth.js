@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('app')
-    .factory('Auth', ['$http', 'Token', 'jwtHelper', '$timeout', '$rootScope',
-            function ($http, Token, jwtHelper, $timeout, $rootScope) {
+    .factory('Auth', ['$http', 'Token', 'jwtHelper', '$timeout', '$rootScope', 'API', 'API_BASE',
+            function ($http, Token, jwtHelper, $timeout, $rootScope, API, API_BASE) {
         var Auth = {};
 
         Auth.getTokenPayload = function () {

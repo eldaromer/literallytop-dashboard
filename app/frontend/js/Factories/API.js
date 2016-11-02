@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('app')
     .constant('API_BASE', '/api/')
-    .factory('API', ['$q', '$resource', function ($q, $resource) {
+    .factory('API', ['$q', '$resource', 'API_BASE', function ($q, $resource, API_BASE) {
         var API = {};
 
         API.User = $resource(API_BASE + 'users/:user_id', {

@@ -5,7 +5,11 @@ angular.module('app')
 
         Token._tokenCookie = 'litDashboardToken';
 
-        Token.setToken = function () {
+        Token.getToken = function () {
+            return $cookies.get(Token._tokenCookie);
+        };
+
+        Token.setToken = function (token) {
             $cookies.put(Token._tokenCookie, token);
         };
 

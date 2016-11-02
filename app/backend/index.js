@@ -21,8 +21,12 @@ module.exports = function (app, callback) {
     //Create Models
     models.createModel(require('./User/User.model')(app));
 
+    //Set Middleware
+    router.use(require('./Auth/Auth.middleware')(app).decodeToken);
+
     //Set Routes
     router.use('/users', require('./User/User.route')(app));
+    router.use('/auth', require('./Auth/Auth.route')(app));
 
 
 

@@ -8,7 +8,7 @@ gulp.task('inject', function() {
     var wiredep = require('wiredep').stream;
     var inject = require('gulp-inject');
 
-    var injectSrc = gulp.src(['./app/frontend/js/**/*.js', './app/frontend/css/**/*.css'], {
+    var injectSrc = gulp.src(['./app/frontend/js/**/*.js', './app/frontend/components/**/*.js', './app/frontend/css/**/*.css'], {
         read: false
     });
 

@@ -8,10 +8,10 @@ angular.module('app')
         Error._broadcastErrorEvent = function () {
             $rootScope.$broadcast('Error', {
                 error: Error.error
-            })
+            });
         };
 
-        Error._broadcastErrorEvent();
+        //  Error._broadcastErrorEvent();
 
         Error.statusRedirects = {
             403: {
