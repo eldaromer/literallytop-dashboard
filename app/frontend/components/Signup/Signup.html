@@ -1,0 +1,23 @@
+<div class="middle-box text-center loginscreen centered" style="width: 20vw">
+    <div>
+        <!--<img src="imgs/logo.svg" alt="logo" class="img-lg m-b-md">-->
+        <br>
+        <h3>Literally Top</h3>
+        <p>Signing up is Top</p>
+        <br/>
+        <form novalidate ng-submit="signup()">
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="user.username" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" ng-model="user.password" placeholder="Password">
+            </div>
+            <br/>
+            <button class="btn btn-primary btn-block" ng-click="signup()" type="submit">Sign Up</button>
+        </form>
+        <br>
+        <p>
+            <a class = "text-primary" href="/#/login">Log in</a>
+        </p>
+    </div>
+</div>

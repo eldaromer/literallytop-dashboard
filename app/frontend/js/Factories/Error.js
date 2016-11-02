@@ -1,6 +1,6 @@
 /*global angular*/
 angular.module('app')
-    .factory('Error', ['$location', '$rootScope', 'API', function ($rootScope, $location, API) {
+    .factory('Error', ['$location', '$rootScope', 'API', 'Toast', function ($location, $rootScope, API, Toast) {
         var Error = {};
 
         Error.error = null;
@@ -11,15 +11,21 @@ angular.module('app')
             });
         };
 
+        Error.toast = function (edata) {
+            console.log('test');
+            Toast.error((edata.message||'Error'), edata.title);
+        };
+
         //  Error._broadcastErrorEvent();
 
         Error.statusRedirects = {
             403: {
-                path: '/login'
-            },
-            /*422: {
+                path: '/login',
                 handle: Error.toast
-            },*/
+            },
+            422: {
+                handle: Error.toast
+            },
             501: {
                 path: '/501'
             },
