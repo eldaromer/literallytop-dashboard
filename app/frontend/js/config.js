@@ -5,5 +5,6 @@ angular.module('app')
             .when('/login', {
                 name: 'Login',
                 template: '<lit-login></lit-login>'
-            });
+            })
+            .otherwise({redirectTo: "/login"});
     }]);
