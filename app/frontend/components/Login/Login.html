@@ -1,0 +1,42 @@
+<div class="middle-box text-center loginscreen">
+    <div>
+        <img src="imgs/logo.svg" alt="logo" class="img-lg m-b-md">
+        <br>
+        <h3 ng-if="!error && !message">Literally Top</h3>
+        <p ng-if="!error && !message">Find out what's Literally Top Inside</p>
+        <div ng-if="message">
+            <h3 class="text-success">{{message}}</h3>
+        </div>
+        <div ng-if="error">
+            <br>
+            <h3 class="text-success" ng-if="error.message">Whoops!</h3>
+            <p class="text-muted">{{error.message}}</p>
+        </div>
+        <br/>
+        <form novalidate ng-if="!passwordResetShow" ng-submit="login()">
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="user.username" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" ng-model="user.password" placeholder="Password">
+            </div>
+            <br/>
+            <button class="btn btn-primary btn-block" ng-click="login()" type="submit">Login</button>
+            <br/>
+            <p>
+                <a class="text-primary" href ng-click="showPasswordReset()">Forgot Password?</a>
+            </p>
+        </form>
+        <form ng-if="passwordResetShow">
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="email" placeholder="Email">
+            </div>
+            <br/>
+            <button class="btn btn-primary btn-block" ng-click="sendPasswordReset(email)">Send Password Reset</button>
+            <br/>
+            <p>
+                <a class="text-primary" href ng-click="showPasswordReset()">Go Back</a>
+            </p>
+        </form>
+    </div>
+</div>
