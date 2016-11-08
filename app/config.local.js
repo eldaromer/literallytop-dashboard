@@ -4,6 +4,6 @@ module.exports = {
     port: 5000,
     appDirectory: DEV ? 'app/frontend' : 'app/frontend_dist',
     baseURL: DEV ? 'http://localhost:5000' : '',
-    databaseAddress: 'mongodb://localhost/LeadLogica-Dashboard',
+    databaseAddress: 'mongodb://localhost/LiterallyTop-Dashboard',
     secret: 'MuchSecureVeryAuth'
 };

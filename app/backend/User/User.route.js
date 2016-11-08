@@ -5,6 +5,7 @@ module.exports = function (app) {
 
     var models = app.get('models');
     var Model = models.User;
+    var Post = models.Post;
 
     var async = app.get('async');
 
@@ -12,13 +13,15 @@ module.exports = function (app) {
         return req.user._id === req.params.id;
     };
 
-    router.get('/', function (req, res) {
+    /*router.get('/', function (req, res) {
         Model.find(function (err, users) {
             if (err) return console.error(err);
             console.log(users);
         });
         return res.send("lmao");
-    });
+    });*/
+
+    router.get('/:_creator/posts', endpoint.readChildren(Post, '_creator', Post.populates));
 
     router.post('/signup', function (req, res) {
         console.log('test');

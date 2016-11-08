@@ -20,7 +20,7 @@ module.exports = function (app) {
             });
         }
         if (config.post) {
-            Object.kets(config.post).forEach(function (key) {
+            Object.keys(config.post).forEach(function (key) {
                 schema.post(key, config.post[key]);
             });
         }

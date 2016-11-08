@@ -1,5 +1,6 @@
 module.exports = function (app) {
     var mongoose = app.get('mongoose');
+    var Schema = mongoose.Schema;
 
     return {
         name: 'User',
@@ -13,7 +14,8 @@ module.exports = function (app) {
             passwordHash : {
                 type: String,
                 required: true
-            }
+            },
+            following : [{ type: Schema.ObjectId, ref: 'User'}]
         },
         populates: []
     }

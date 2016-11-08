@@ -9,6 +9,10 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.overflow-y-scroll {
+    overflow-y: scroll;
+}
+
 #wrapper {
     height: 100%;
 }
