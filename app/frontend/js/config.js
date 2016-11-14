@@ -10,7 +10,7 @@ angular.module('app')
                 name: 'Signup',
                 template: '<lit-signup></lit-signup>'
             })
-            .when('/storefront', {
+            .when('/storefront/:user_id', {
                 name: 'Storefront',
                 template: '<lit-storefront></lit-storefront>'
             })
@@ -18,7 +18,7 @@ angular.module('app')
                 resolveRedirectTo: ['Auth', function(Auth) {
                     var payload = Auth.getTokenPayload();
                     if (payload) {
-                        return '/storefront';
+                        return '/storefront/' + payload.user._id;
                     } else {
                         return '/login';
                     }

@@ -10,21 +10,17 @@ module.exports = function (app) {
     var async = app.get('async');
 
     var userValidator = function (req) {
+        if (!req.user) {
+            return false;
+        }
         return req.user._id === req.params.id;
     };
 
-    /*router.get('/', function (req, res) {
-        Model.find(function (err, users) {
-            if (err) return console.error(err);
-            console.log(users);
-        });
-        return res.send("lmao");
-    });*/
+    router.get('/:id', endpoint.auth(userValidator),endpoint.read(Model, Model.populates, null, endpoint.userOutputMiddleware));
 
     router.get('/:_creator/posts', endpoint.readChildren(Post, '_creator', Post.populates));
 
     router.post('/signup', function (req, res) {
-        console.log('test');
         async.waterfall([
             function (callback) {
                 if (!req.body.username) return callback({message: 'Username Required', status: 422});

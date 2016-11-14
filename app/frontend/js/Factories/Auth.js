@@ -4,6 +4,14 @@ angular.module('app')
             function ($http, Token, jwtHelper, $timeout, $rootScope, API, API_BASE) {
         var Auth = {};
 
+        Auth.logout = function (cb) {
+            Token.removeToken();
+
+            Auth._sendAuthEvent();
+
+            return cb();
+        };
+
         Auth.getTokenPayload = function () {
             var token = Token.getToken();
             if (!token) return null;
