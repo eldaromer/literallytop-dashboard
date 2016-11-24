@@ -4,7 +4,7 @@ angular.module('app')
     .factory('API', ['$q', '$resource', 'API_BASE', function ($q, $resource, API_BASE) {
         var API = {};
 
-        API.post = $resource(API_BASE + 'posts/:post_id', {
+        API.Post = $resource(API_BASE + 'posts/:post_id', {
             post_id: '@_id'
         }, {
             create: {

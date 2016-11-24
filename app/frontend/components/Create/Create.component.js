@@ -3,10 +3,11 @@ angular.module('app')
     .directive('litCreate', function () {
         return {
             templateUrl: 'components/Create/Create.html',
-            controller: ['$scope', 'API', function ($scope, API) {
+            controller: ['$scope', '$location', 'API', function ($scope, $location, API) {
                 $scope.post = {};
                 $scope.create = function () {
-                    API.post.create($scope.post, function (post) {
+                    API.Post.create($scope.post, function (post) {
+                        $location.path('/');
                         console.log(post);
                     })
                 };

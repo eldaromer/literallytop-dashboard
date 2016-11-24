@@ -6,7 +6,7 @@ module.exports = function (app) {
         schema: {
             _creator: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'User',
+                ref: 'User'
             },
             title: {
                 type: String,

@@ -12,7 +12,6 @@ angular.module('app')
         };
 
         Error.toast = function (edata) {
-            console.log('test');
             Toast.error((edata.message||'Error'), edata.title);
         };
 

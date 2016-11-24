@@ -14,6 +14,10 @@ angular.module('app')
                 name: 'Storefront',
                 template: '<lit-storefront></lit-storefront>'
             })
+            .when('/create', {
+                name: 'Create',
+                template: '<lit-create></lit-create>'
+            })
             .when('/', {
                 resolveRedirectTo: ['Auth', function(Auth) {
                     var payload = Auth.getTokenPayload();

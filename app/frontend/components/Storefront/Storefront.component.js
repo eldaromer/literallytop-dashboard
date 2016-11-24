@@ -5,7 +5,6 @@ angular.module('app')
             templateUrl: 'components/Storefront/Storefront.html',
             controller: ['$scope', '$q', '$routeParams', 'Auth', 'API', '$location',
                 function ($scope, $q, $routeParams, Auth, API, $location) {
-                    console.log($routeParams);
                 $scope.load = function () {
                     $q.all([
                         API.User.get($routeParams, function (a) {
@@ -18,7 +17,6 @@ angular.module('app')
 
                 $scope.logout = function () {
                     Auth.logout(function () {
-                        console.log('logout');
                         $location.path('/');
                     })
                 };

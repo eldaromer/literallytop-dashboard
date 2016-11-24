@@ -53,14 +53,15 @@ module.exports = function (app) {
 
     endpoint.tokenUserIdMatchesParamId = function () {
         return function (req, res, next) {
-            if (req.user._id===req.params.id) return next();
+            console.log(req.params);
+            if (req.user._id===req.params._id) return next();
             return res.sendStatus(403);
         };
     };
 
     endpoint.tokenCustomerIdMatchesParamId = function () {
         return function (req, res, next) {
-            if (req.user.customer===req.params.id) return next();
+            if (req.user.customer===req.params._id) return next();
             return res.sendStatus(403);
         };
     };

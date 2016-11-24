@@ -26,16 +26,18 @@ module.exports = function (app) {
         });
     });
 
-    router.post('/create', /*endpoint.tokenUserIdMatchesParamId(),*/ function(req, res) {
+    router.post('/create', endpoint.tokenUserIdMatchesParamId(), function(req, res) {
         async.waterfall([
             function (callback) {
-
+                if (!req.body.title) return callback({message: 'Title Required', status: 422});
+                if (!req.body.imgSrc) return callback({message: 'Image Source Required', status: 422});
+                if (!req.body.content) return callback({message: 'Review Required', status: 422});
                 var o = req.body;
 
                 return callback(null, o);
             },
             function(o2, callback) {
-                //o2._creator = req.body.username;
+                o2._creator = req.user._id;
                 var p = new Model(o2);
 
 
@@ -61,7 +63,11 @@ module.exports = function (app) {
             }
         ], function (err, post) {
             if (err) {
-                console.log(err);
+                console.error(err);
+                if(err.status && err.message) {
+                    return res.status(err.status).send(err);
+                }
+                return res.sendStatus(err.status || 500);
             }
 
             return res.send(post);
