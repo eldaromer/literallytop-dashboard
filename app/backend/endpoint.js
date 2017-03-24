@@ -1,3 +1,4 @@
+//Written by Jake Billings
 module.exports = function (app) {
     var endpoint = {};
 
